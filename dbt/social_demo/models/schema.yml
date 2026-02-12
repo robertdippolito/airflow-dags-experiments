@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_students
+    description: "Cleaned and types student social media data"
+    columns:
+      - name: student_id
+        tests:
+          - not_null
+          - unique
+      - name: age
+        tests:
+          - not_null
+      - name: gender
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Male", "Female", "Other"]
+      - name: academic_level
+        tests: 
+          - not_null
+          - accepted_values:
+              values: ["High School", "Undergraduate", "Graduate"]
+      - name: most_used_platform
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Instagram", "TikTok", "Twitter", "YouTube", "Snapchat", "Facebook","WhatsApp","LinkedIn","WeChat","VKontakte","LINE","KakaoTalk"]
+      - name: affects_academic_performance
+        tests:
+          - accepted_values:
+              values: [true, false]
+      - name: avg_daily_usage_hours
+        tests:
+          - not_null

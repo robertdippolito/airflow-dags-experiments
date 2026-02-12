@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_infra_costs
+    description: "Typed infrastructure cost records from the seed dataset."
+    columns:
+      - name: usage_date
+        tests:
+          - not_null
+      - name: account_id
+        tests:
+          - not_null
+      - name: service
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["compute", "storage", "network", "database"]
+      - name: cost_usd
+        tests:
+          - not_null
+      - name: env
+        tests:
+          - accepted_values:
+              values: ["prod", "dev"]

@@ -8,3 +8,4 @@ To run (from docs):
 
 to tear down:
 `docker compose down --volumes --rmi all`
+
